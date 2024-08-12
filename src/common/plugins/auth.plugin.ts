@@ -33,7 +33,7 @@ export const authPlugin = (app: Elysia) => {
       }
 
       return {
-        user: id,
+        userId: id,
       };
     });
 };

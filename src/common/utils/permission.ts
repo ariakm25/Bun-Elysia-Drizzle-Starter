@@ -162,6 +162,10 @@ export const getAbility = async (userData: UserRolePermissionData) => {
 };
 
 export const getAbilityByUserId = async (userId: string) => {
+  if (!userId) {
+    return null;
+  }
+
   const userData = await getUserWithRolePermission(userId);
   if (!userData) {
     return null;

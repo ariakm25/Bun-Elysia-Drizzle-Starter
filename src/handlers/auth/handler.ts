@@ -2,7 +2,7 @@ import { Elysia, t } from 'elysia';
 import { db } from '../../db';
 import { eq } from 'drizzle-orm';
 import { UserSchema } from '../../db/schemas/user/user.schema';
-import { hashPassword, verifyPassword } from '../../common/utils/hash';
+import { verifyPassword } from '../../common/utils/hash';
 import { jwtAccessToken } from '../../common/libs/jwt';
 
 export const authHandler = (app: Elysia) =>
