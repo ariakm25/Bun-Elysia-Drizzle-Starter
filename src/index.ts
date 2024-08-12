@@ -3,11 +3,16 @@ import { rateLimit } from 'elysia-rate-limit';
 import { logger } from './common/utils/log';
 import swagger from './common/libs/swagger';
 import handlers from './handlers';
+import staticPlugin from '@elysiajs/static';
+import cors from '@elysiajs/cors';
+import rateLimiter from './common/libs/ratelimiter';
 
 const app = new Elysia()
-  .use(handlers)
+  .use(staticPlugin())
+  .use(cors())
   .use(swagger())
-  .use(rateLimit({ max: 5 }));
+  .use(rateLimiter())
+  .use(handlers);
 
 try {
   app.listen(process.env.PORT || 3000);

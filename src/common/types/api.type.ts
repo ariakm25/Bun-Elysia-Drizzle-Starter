@@ -1,6 +1,6 @@
-export type ApiResponse<T = unknown> = {
-  data: T;
+export interface ApiResponse<T> {
+  data?: T;
   status: number;
-  message: "OK" | "ERROR" | string;
+  message: string;
   error?: T;
-};
+}

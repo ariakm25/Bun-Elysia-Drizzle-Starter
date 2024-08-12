@@ -10,12 +10,16 @@ const swagger = () =>
         description: 'API documentation for Elysia API',
         version: '0.0.0',
       },
-      tags: [
-        {
-          name: 'User',
-          description: 'User related endpoints',
+      components: {
+        securitySchemes: {
+          JwtAuth: {
+            type: 'http',
+            scheme: 'bearer',
+            bearerFormat: 'JWT',
+            description: 'Enter JWT Bearer token **_only_**',
+          },
         },
-      ],
+      },
     },
     autoDarkMode: true,
     swaggerOptions: {

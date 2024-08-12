@@ -110,8 +110,16 @@ export const createAbility = (user?: UserRolePermissionData) => {
   return createMongoAbility<AppAbility>(rules);
 };
 
-export const getUserWithRolePermission = async (id: string) =>
-  db.query.UserSchema.findFirst({
+export const getUserWithRolePermission = async (id: string) => {
+  const cache = new Cache(`user:permission:${id}`);
+
+  const cacheData = await cache.get();
+
+  if (cacheData) {
+    return cache;
+  }
+
+  const getUserData = await db.query.UserSchema.findFirst({
     columns: {
       id: true,
       name: true,
@@ -138,21 +146,17 @@ export const getUserWithRolePermission = async (id: string) =>
     },
   });
 
-export const getAbility = async (
-  userId: InferSelectModel<typeof UserSchema>['id'],
-) => {
-  const cache = new Cache<AppAbility>(`user:${userId}:ability`);
-
-  const cached = await cache.get();
-
-  if (cached) {
-    return cached;
+  if (!getUserData) {
+    return null;
   }
 
-  const user = await getUserWithRolePermission(userId);
-  const ability = createAbility(user as unknown as UserRolePermissionData);
+  await cache.set(getUserData, 60 * 5);
 
-  await cache.set(ability, 60 * 5);
+  return getUserData;
+};
+
+export const getAbility = async (userData: UserRolePermissionData) => {
+  const ability = createAbility(userData);
 
   return ability;
 };

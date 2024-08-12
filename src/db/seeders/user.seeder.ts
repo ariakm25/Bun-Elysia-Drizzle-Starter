@@ -111,7 +111,7 @@ export const userSeeder = async (database: PostgresJsDatabase) => {
       .values({
         name: 'Admin',
         password:
-          '$2a$10$hyPDhEB2EtlcUNbE7J4h8.30yQdF5PSF81QM2rPMYfG9eiWSPP/Hi', // password
+          '$argon2id$v=19$m=65536,t=2,p=1$YGHiqTLEWXzNhNAdW4pT3Yl14cuWodeqnTgVtERPAJ4$+caqrKEBVK0apF9wq8zbnKAqQCa4xBxBVO0P3Mvd8OA', // password
         email: 'admin@admin.com',
         image: 'https://i.pravatar.cc/300',
         emailVerifiedAt: new Date(),
@@ -125,7 +125,7 @@ export const userSeeder = async (database: PostgresJsDatabase) => {
       .values({
         name: 'User',
         password:
-          '$2a$10$hyPDhEB2EtlcUNbE7J4h8.30yQdF5PSF81QM2rPMYfG9eiWSPP/Hi', // password
+          '$argon2id$v=19$m=65536,t=2,p=1$YGHiqTLEWXzNhNAdW4pT3Yl14cuWodeqnTgVtERPAJ4$+caqrKEBVK0apF9wq8zbnKAqQCa4xBxBVO0P3Mvd8OA', // password
         email: 'user@user.com',
         image: 'https://i.pravatar.cc/300',
         emailVerifiedAt: new Date(),
@@ -166,7 +166,7 @@ export const userSeeder = async (database: PostgresJsDatabase) => {
         .values({
           name: faker.person.fullName(),
           password:
-            '$2a$10$hyPDhEB2EtlcUNbE7J4h8.30yQdF5PSF81QM2rPMYfG9eiWSPP/Hi', // password
+            '$argon2id$v=19$m=65536,t=2,p=1$YGHiqTLEWXzNhNAdW4pT3Yl14cuWodeqnTgVtERPAJ4$+caqrKEBVK0apF9wq8zbnKAqQCa4xBxBVO0P3Mvd8OA', // password
           email: faker.internet.email(),
           image: faker.image.url(),
           emailVerifiedAt: new Date(),
