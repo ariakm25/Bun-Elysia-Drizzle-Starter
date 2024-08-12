@@ -116,7 +116,7 @@ export const getUserWithRolePermission = async (id: string) => {
   const cacheData = await cache.get();
 
   if (cacheData) {
-    return cache;
+    return cacheData as unknown as UserRolePermissionData;
   }
 
   const getUserData = await db.query.UserSchema.findFirst({
@@ -152,10 +152,21 @@ export const getUserWithRolePermission = async (id: string) => {
 
   await cache.set(getUserData, 60 * 5);
 
-  return getUserData;
+  return getUserData as UserRolePermissionData;
 };
 
 export const getAbility = async (userData: UserRolePermissionData) => {
+  const ability = createAbility(userData);
+
+  return ability;
+};
+
+export const getAbilityByUserId = async (userId: string) => {
+  const userData = await getUserWithRolePermission(userId);
+  if (!userData) {
+    return null;
+  }
+
   const ability = createAbility(userData);
 
   return ability;

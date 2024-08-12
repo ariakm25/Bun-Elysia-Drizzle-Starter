@@ -10,7 +10,6 @@ export const authHandler = (app: Elysia) =>
     app.use(jwtAccessToken()).post(
       '/login',
       async ({ jwt, body, set }) => {
-        console.log(await hashPassword(body.password));
         const user = await db.query.UserSchema.findFirst({
           where: eq(UserSchema.email, body.email),
         });
