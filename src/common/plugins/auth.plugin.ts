@@ -1,7 +1,7 @@
 import bearer from '@elysiajs/bearer';
-import jwt from '@elysiajs/jwt';
 import Elysia from 'elysia';
 import { jwtAccessToken } from '../libs/jwt';
+import { UnauthorizedError } from '../utils/error';
 
 export const authPlugin = (app: Elysia) => {
   return app
@@ -13,7 +13,7 @@ export const authPlugin = (app: Elysia) => {
         set.headers['WWW-Authenticate'] =
           `Bearer realm='sign', error="invalid_request"`;
 
-        throw new Error('invalid access token');
+        throw new UnauthorizedError('invalid access token');
       }
 
       const jwtPayload = await jwt.verify(bearer);
@@ -21,7 +21,7 @@ export const authPlugin = (app: Elysia) => {
       if (!jwtPayload) {
         set.status = 401;
 
-        throw new Error('invalid access token');
+        throw new UnauthorizedError('invalid access token');
       }
 
       const id = jwtPayload.sub;
@@ -29,7 +29,7 @@ export const authPlugin = (app: Elysia) => {
       if (!id) {
         set.status = 401;
 
-        throw new Error('invalid access token');
+        throw new UnauthorizedError('invalid access token');
       }
 
       return {

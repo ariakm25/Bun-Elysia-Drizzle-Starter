@@ -1,4 +1,5 @@
 import { swagger as primitiveSwagger } from '@elysiajs/swagger';
+import { error } from 'elysia';
 
 const swagger = () =>
   primitiveSwagger({
@@ -17,6 +18,11 @@ const swagger = () =>
             scheme: 'bearer',
             bearerFormat: 'JWT',
             description: 'Enter JWT Bearer token **_only_**',
+          },
+        },
+        headers: {
+          Authorization: {
+            description: 'JWT Token',
           },
         },
       },

@@ -2,8 +2,15 @@ import Elysia, { ValidationError } from 'elysia';
 import { userHandler } from './users/handler';
 import { authHandler } from './auth/handler';
 import { ApiResponse } from '../common/types/api.type';
+import { BadRequestError, UnauthorizedError } from '../common/utils/error';
+import { ForbiddenError } from '@casl/ability';
 
 const controllers = new Elysia()
+  .error({
+    BadRequestError,
+    UnauthorizedError,
+    ForbiddenError,
+  })
   .onError(({ code, error }) => {
     if (code === 'VALIDATION') {
       return {
