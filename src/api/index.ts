@@ -5,7 +5,7 @@ import { ApiResponse } from '../common/types/api.type';
 import { BadRequestError, UnauthorizedError } from '../common/utils/error';
 import { ForbiddenError } from '@casl/ability';
 
-const controllers = new Elysia()
+export const api = new Elysia()
   .error({
     BadRequestError,
     UnauthorizedError,
@@ -42,5 +42,3 @@ const controllers = new Elysia()
   })
   .use(userHandler)
   .use(authHandler);
-
-export default controllers;

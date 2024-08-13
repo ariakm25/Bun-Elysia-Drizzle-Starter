@@ -1,8 +1,7 @@
 import { Elysia } from 'elysia';
-import { rateLimit } from 'elysia-rate-limit';
 import { logger } from './common/utils/log';
 import swagger from './common/libs/swagger';
-import handlers from './handlers';
+import { api } from './api';
 import staticPlugin from '@elysiajs/static';
 import cors from '@elysiajs/cors';
 import rateLimiter from './common/libs/ratelimiter';
@@ -12,7 +11,7 @@ const app = new Elysia()
   .use(cors())
   .use(swagger())
   .use(rateLimiter())
-  .use(handlers);
+  .use(api);
 
 try {
   app.listen(process.env.PORT || 3000);

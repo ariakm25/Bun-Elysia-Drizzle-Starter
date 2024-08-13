@@ -6,7 +6,7 @@ export const authHandler = (app: Elysia) =>
   app.group('auth', (app) =>
     app.use(jwtAccessToken()).post(
       '/login',
-      async ({ jwt, body, set }) => {
+      async ({ jwt, body }) => {
         const user = await login(body.email, body.password);
 
         const token = await jwt.sign({
