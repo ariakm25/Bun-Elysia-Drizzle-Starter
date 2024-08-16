@@ -1,15 +1,141 @@
-# Elysia with Bun runtime
+<h3 align="center">Bun Elysia Starter</h3>
 
-## Getting Started
-To get started with this template, simply paste this command into your terminal:
-```bash
-bun create elysia ./elysia-example
+---
+
+## 📝 Table of Contents
+
+- [About](#about)
+- [Getting Started](#getting_started)
+- [Run](#run)
+- [Development](#development)
+
+## 🧐 About <a name = "about"></a>
+
+Bun App Boilerplate using Elysia
+
+## Prerequisites
+
+### Install:
+
+- [Bun](https://bun.dev)
+- [Redis](https://redis.io/)
+- [Postgres](https://www.postgresql.org/)
+
+## 🏁 Getting Started <a name = "getting_started"></a>
+
+### Set up environment variables
+
+```
+cp .env.example .env
 ```
 
-## Development
-To start the development server run:
-```bash
-bun run dev
+### Install dependencies
+
+```
+bun install
 ```
 
-Open http://localhost:3000/ with your browser to see the result.
+## 🚀 Running the app <a name = "run"></a>
+
+run:
+
+```
+bun start
+```
+
+## ⛏️ Development
+
+#### 🔌 Database Migration
+
+```
+bun run db:migrate
+```
+
+#### 🌱 Database Seed <a name = "development"></a>
+
+```
+bun run db:seed
+```
+
+#### 📝 Generate Database Migration
+
+Create or update Schema in `src/db/schemas` then run:
+
+```
+bun run db:generate
+```
+
+#### 🗃️ Drizzle Studio Database Client
+
+```
+bun run db:studio
+```
+
+#### 🧪 Test
+
+```
+bun test
+```
+
+#### 🧑‍💻 Run With Live Reload
+
+```
+bun dev
+```
+
+## 🍃 Built Using <a name = "built_using"></a>
+
+- [ElysiaJs](https://elysiajs.com/)
+- [Drizzle ORM](https://orm.drizzle.team/)
+- [CASL](https://casl.js.org/v6/en/)
+
+---
+
+---
+
+## Checklist
+
+---
+
+### Auth
+
+- [ ] Logout
+- [x] Role & Permission
+- [ ] Reset Password
+- [ ] Forgot Password
+- [ ] Register
+- [x] Login
+
+### Mailing
+
+- [ ] Template
+- [ ] Send
+
+### System
+
+- [ ] Scheduler / Cron Job
+- [ ] Queue
+- [x] Logging
+- [ ] File Upload: S3
+- [x] Rate Limiter
+
+### Data
+
+- [] Pagination
+
+### Database
+
+- [x] Versioned Migration
+- [x] Seeder
+
+### Monitoring
+
+- [ ] Job Monitoring (Scheduler & Queue)
+
+### Caching
+
+- [x] Redis Service
+
+### Deployment
+
+- [x] Dockerfile

@@ -13,7 +13,7 @@ export const userHandler = (app: Elysia) =>
         return getUsers({ limit: 50 });
       },
       {
-        beforeHandle: async ({ userId, set }) => {
+        beforeHandle: async ({ userId }) => {
           const ability = await getAbilityByUserId(userId);
 
           if (!ability) {
