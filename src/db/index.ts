@@ -14,6 +14,7 @@ const db = drizzle(pgConnection, {
     ...UserSchema,
     ...UserToRoleSchema,
   },
+  logger: process.env.MODE === 'development',
 });
 
 export { db };

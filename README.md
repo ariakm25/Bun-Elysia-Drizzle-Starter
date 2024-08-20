@@ -121,7 +121,7 @@ bun dev
 
 ### Data
 
-- [] Pagination
+- [x] Pagination
 
 ### Database
 
