@@ -37,10 +37,22 @@ bun install
 
 ## 🚀 Running the app <a name = "run"></a>
 
-run:
+#### Run App:
 
 ```
 bun start
+```
+
+##### Run Queue Worker
+
+```
+bun run:worker
+```
+
+##### Run Scheduler
+
+```
+bun run:scheduler
 ```
 
 ## ⛏️ Development
@@ -113,8 +125,8 @@ bun dev
 
 ### System
 
-- [ ] Scheduler / Cron Job
-- [ ] Queue
+- [x] Scheduler / Cron Job
+- [x] Queue
 - [x] Logging
 - [ ] File Upload: S3
 - [x] Rate Limiter

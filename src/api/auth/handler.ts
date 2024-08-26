@@ -1,6 +1,8 @@
 import { Elysia, t } from 'elysia';
 import { jwtAccessToken } from '../../common/libs/jwt';
 import { login } from './service';
+import { sendEmailResetPasswordQueue } from '../../processor/queue/email/email.queue';
+import { SEND_EMAIL_RESET_PASSWORD_QUEUE_NAME } from '../../processor/queue/email/email.queue.type';
 
 export const authHandler = (app: Elysia) =>
   app.group('auth', (app) =>
