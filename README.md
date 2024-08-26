@@ -142,7 +142,7 @@ bun dev
 
 ### Monitoring
 
-- [ ] Job Monitoring (Scheduler & Queue)
+- [x] Job Monitoring (Scheduler & Queue)
 
 ### Caching
 

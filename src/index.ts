@@ -5,8 +5,10 @@ import { api } from './api';
 import staticPlugin from '@elysiajs/static';
 import cors from '@elysiajs/cors';
 import rateLimiter from './common/libs/ratelimiter';
+import { bullboardPlugin } from './common/plugins/bullboard.plugin';
 
 const app = new Elysia()
+  .use(bullboardPlugin)
   .use(staticPlugin())
   .use(cors())
   .use(swagger())

@@ -23,9 +23,11 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@bull-board/api": "^5.21.4",
     "@casl/ability": "^6.7.1",
     "@elysiajs/bearer": "^1.1.1",
     "@elysiajs/cors": "^1.1.0",
+    "@elysiajs/html": "^1.1.0",
     "@elysiajs/jwt": "^1.1.0",
     "@elysiajs/static": "^1.1.0",
     "@elysiajs/swagger": "^1.1.1",
@@ -45,6 +47,7 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
+    "@types/ejs": "^3.1.5",
     "@types/nodemailer": "^6.4.15",
     "bun-types": "latest",
     "drizzle-kit": "^0.24.2",

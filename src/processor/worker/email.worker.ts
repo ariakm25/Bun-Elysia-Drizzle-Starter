@@ -15,5 +15,8 @@ export const sendResetPasswordEmailWorker =
     {
       connection: sharedProcessorRedisConn,
       autorun: false,
+      removeOnComplete: {
+        count: 5000,
+      },
     },
   );
