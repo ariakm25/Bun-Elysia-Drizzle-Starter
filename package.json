@@ -37,12 +37,14 @@
     "elysia-rate-limit": "^4.1.0",
     "husky": "^9.1.5",
     "ioredis": "^5.4.1",
+    "nodemailer": "^6.9.14",
     "pino": "^9.3.2",
     "pino-pretty": "^11.2.2",
     "postgres": "^3.4.4",
     "uuid": "^10.0.0"
   },
   "devDependencies": {
+    "@types/nodemailer": "^6.4.15",
     "bun-types": "latest",
     "drizzle-kit": "^0.24.2",
     "lint-staged": "^15.2.9",

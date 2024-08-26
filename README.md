@@ -121,7 +121,7 @@ bun dev
 ### Mailing
 
 - [ ] Template
-- [ ] Send
+- [x] Transporter (Send Mail)
 
 ### System
 
