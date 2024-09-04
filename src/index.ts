@@ -6,6 +6,9 @@ import staticPlugin from '@elysiajs/static';
 import cors from '@elysiajs/cors';
 import rateLimiter from './common/libs/ratelimiter';
 import { bullboardPlugin } from './common/plugins/bullboard.plugin';
+import { join } from 'path';
+
+export const publicPath = join(__dirname, '../public');
 
 const app = new Elysia()
   .use(bullboardPlugin)
