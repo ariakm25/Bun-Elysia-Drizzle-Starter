@@ -12,7 +12,7 @@ export const register = async (
   let publicFile = null;
   if (image != null) {
     publicFile = `/uploads/${image.name}`;
-    const uploadPath = publicPath + publicPath;
+    const uploadPath = publicPath + publicFile;
     await Bun.write(uploadPath, await image.arrayBuffer());
   }
 
