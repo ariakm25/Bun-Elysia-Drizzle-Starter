@@ -4,6 +4,7 @@ import { authHandler } from './auth/handler';
 import { ApiResponse } from '../common/types/api.type';
 import { BadRequestError, UnauthorizedError } from '../common/utils/error';
 import { ForbiddenError } from '@casl/ability';
+import { registerHandler } from './register/handler';
 
 export const api = new Elysia()
   .error({
@@ -41,4 +42,5 @@ export const api = new Elysia()
     } as ApiResponse<typeof response>;
   })
   .use(userHandler)
-  .use(authHandler);
+  .use(authHandler)
+  .use(registerHandler);
